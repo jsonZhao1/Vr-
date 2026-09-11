@@ -31,7 +31,7 @@
       "dist/electron/**/*"
     ],
     "electronDownload": {
-      "mirror": "https://npm.taobao.org/mirrors/electron/"
+      "mirror": "https://npmmirror.com/mirrors/electron/"
     },
     "npmRebuild": false,
     "nsis": {
