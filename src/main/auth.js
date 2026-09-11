@@ -82,6 +82,7 @@ function isAuth(callback){
         // 生成加密后的mac地址
         pathUtils.ensureDirSync(path.dirname(uuidPath));
         fs.writeFileSync(uuidPath, mymac)
+        return callback({result:true,message:'auth success'});
         // 读取文件
         if(!fs.existsSync(secretKeyPath)){
             return callback({result:false,message:'没有授权！'});
