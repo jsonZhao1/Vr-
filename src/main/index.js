@@ -25,6 +25,11 @@ const winURL = process.env.NODE_ENV === 'development'
     : `file://${__dirname}/index.html`
 process.on('uncaughtException', function (err) {
     console.log('Caught exception: ' + err);
+    console.error(err && err.stack ? err.stack : err);
+    if (!app.isReady()) {
+        app.quit();
+        return;
+    }
     dialog.showMessageBox({
         title: '启动软件异常..！',
         message: 'Caught exception: ' + err

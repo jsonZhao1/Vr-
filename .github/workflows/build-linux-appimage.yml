@@ -22,15 +22,11 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Clean up mirror cache
-        run: |
-          rm -f package-lock.json
-          rm -f yarn.lock
-          rm -f .npmrc
-          npm config set registry https://registry.npmjs.org/
+      - name: Configure npm registry
+        run: npm config set registry https://registry.npmjs.org/
 
       - name: Install dependencies
-        run: npm install --loglevel verbose
+        run: npm ci --loglevel verbose
 
       - name: Install Linux packaging dependencies
         run: |
