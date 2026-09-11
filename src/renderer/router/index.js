@@ -23,6 +23,10 @@ const router = new Router({
     routes: [
         {
             path: '/',
+            redirect: '/home'
+        },
+        {
+            path: '/login',
             name: 'Login',
             component: Login
         },
@@ -108,25 +112,9 @@ const router = new Router({
         },
         {
             path: '*',
-            redirect: '/'
+            redirect: '/home'
         }
     ]
-})
-
-router.beforeEach((to, from, next) => {
-    if (to.name === 'Login') {
-        next()
-        return
-    }
-
-    if (window.sessionStorage.getItem('loginStatus') === '1') {
-        next()
-        return
-    }
-
-    next({
-        name: 'Login'
-    })
 })
 
 export default router
