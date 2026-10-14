@@ -22,7 +22,7 @@
     "rebuild": "electron-rebuild -f"
   },
   "build": {
-    "productName": "云艺化VR内容系统",
+    "productName": "VR管理平台",
     "appId": "com.yyh.vr-touch",
     "directories": {
       "output": "build"
