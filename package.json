@@ -44,7 +44,7 @@
     },
     "linux": {
       "executableName": "vr-manage",
-      "artifactName": "VR管理平台.${ext}",
+      "artifactName": "vr-manage-${version}-${arch}.${ext}",
       "icon": "build/icons",
       "category": "Education",
       "desktop": {
