@@ -43,8 +43,13 @@
       "icon": "build/icons/icon.ico"
     },
     "linux": {
+      "executableName": "vr-manage",
+      "artifactName": "vr-manage-${version}-${arch}.${ext}",
       "icon": "build/icons",
       "category": "Education",
+      "desktop": {
+        "Name": "VR管理平台"
+      },
       "target": [
         "AppImage",
         "deb"
