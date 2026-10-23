@@ -31,7 +31,7 @@ jobs:
       - name: Install Linux packaging dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libarchive-tools
+          sudo apt-get install -y libarchive-tools xvfb xauth
 
       - name: Build Linux packages
         env:
@@ -40,6 +40,9 @@ jobs:
         run: |
           node .electron-vue/build.js
           ./node_modules/.bin/electron-builder --linux --publish never
+
+      - name: Verify deb installation and startup
+        run: bash scripts/verify-linux-deb.sh
 
       - name: Upload Linux packages
         uses: actions/upload-artifact@v4

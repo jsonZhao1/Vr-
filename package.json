@@ -42,6 +42,16 @@
     "win": {
       "icon": "build/icons/icon.ico"
     },
+    "deb": {
+      "depends": [
+        "gconf2",
+        "gconf-service",
+        "libnotify4",
+        "libxtst6",
+        "libnss3",
+        "libxss1"
+      ]
+    },
     "linux": {
       "executableName": "vr-manage",
       "artifactName": "VR管理平台.${ext}",
