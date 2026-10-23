@@ -1,4 +1,4 @@
-name: Build Linux AppImage
+name: Build Linux Packages
 
 on:
   push:
@@ -33,16 +33,18 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libarchive-tools
 
-      - name: Build AppImage
+      - name: Build Linux packages
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEBUG: electron-builder
         run: |
           node .electron-vue/build.js
-          ./node_modules/.bin/electron-builder --linux AppImage --publish never
+          ./node_modules/.bin/electron-builder --linux --publish never
 
-      - name: Upload AppImage
+      - name: Upload Linux packages
         uses: actions/upload-artifact@v4
         with:
-          name: linux-appimage
-          path: build/*.AppImage
+          name: linux-packages
+          path: |
+            build/*.AppImage
+            build/*.deb

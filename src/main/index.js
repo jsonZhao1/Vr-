@@ -9,6 +9,16 @@ import cfg from './config/globalCfg';
 
 import auth from './auth'
 
+// Electron 2's Chromium GPU/shared-memory paths can crash with SIGBUS on
+// some domestic Linux distributions and graphics drivers. Apply these
+// switches before the app is ready so both AppImage and deb builds use the
+// compatible software-rendering path.
+if (process.platform === 'linux') {
+    app.disableHardwareAcceleration();
+    app.commandLine.appendSwitch('disable-gpu');
+    app.commandLine.appendSwitch('disable-dev-shm-usage');
+}
+
 const globalCfg = cfg();
 import pushTrain from './task/pushTrain';
 /**
